@@ -36,7 +36,7 @@ namespace r3
 			auto& data = collisionData.getData();
 			auto maxIndex = -1;
 			auto maxValue = m_epsilon;
-			for (int i = 0; i < collisionData.getEntriesUsed(); ++i)
+			for (size_t i = 0; i < collisionData.getEntriesUsed(); ++i)
 			{
 				auto value = data[i].getPenetration();
 				if (value > maxValue)
@@ -62,15 +62,15 @@ namespace r3
 
 			// Again this action may have changed the penetration of other
 			// bodies, so we update contacts.
-			for (auto i = 0; i < collisionData.getEntriesLeft(); ++i)
+			for (size_t i = 0; i < collisionData.getEntriesLeft(); ++i)
 			{
 				auto& it = data[i];
-				for (auto b = 0; b < 2; b++)
+				for (unsigned b = 0; b < 2; b++)
 				{
 					auto* first = it.getBody(b);
 					if (!first->hasFiniteMass()) continue;
 
-					for (auto d = 0; d < 2; ++d)
+					for (unsigned d = 0; d < 2; ++d)
 					{
 						auto* second = contact.getBody(d);
 						if (first != second) continue;

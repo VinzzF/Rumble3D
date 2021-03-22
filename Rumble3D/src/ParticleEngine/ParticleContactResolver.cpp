@@ -4,13 +4,13 @@
 
 namespace r3
 {
-	ParticleContactResolver::ParticleContactResolver(const unsigned iterations)
+	ParticleContactResolver::ParticleContactResolver(uint32_t iterations)
 		: m_iterationsMax{iterations},
 		m_iterationsUsed{0}
 	{
 	}
 
-	void ParticleContactResolver::setIterationsMax(const unsigned iterations)
+	void ParticleContactResolver::setIterationsMax(uint32_t iterations)
 	{
 		m_iterationsMax = iterations;
 	}

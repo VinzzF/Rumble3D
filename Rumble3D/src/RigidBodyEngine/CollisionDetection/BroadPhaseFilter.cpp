@@ -7,10 +7,10 @@ namespace r3
 											  FixedSizeContainer<CollisionPair>& data)
 	{
 		/// \todo use rigid body mask and layout
-		for (auto i = 0; i < rigidBodies.size(); ++i)
+		for (size_t i = 0; i < rigidBodies.size(); ++i)
 		{
 			auto* first = rigidBodies[i];
-			for (auto j = i + 1; j < rigidBodies.size(); ++j)
+			for (size_t j = i + 1; j < rigidBodies.size(); ++j)
 			{
 				auto* second = rigidBodies[j];
 				if (!createBroadPhaseCollision(first, second, data))

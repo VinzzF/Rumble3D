@@ -18,7 +18,7 @@ namespace r3
         explicit SPHSystem() = default;
         ~SPHSystem() = default;
 
-        SPHParticle& addParticle(int particleDefinitionId);
+        SPHParticle& addParticle(size_t particleDefinitionId);
         std::vector<SPHParticle>& getParticles();
         const std::vector<SPHParticle>& getParticles() const;
 

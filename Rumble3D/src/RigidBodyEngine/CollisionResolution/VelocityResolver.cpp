@@ -169,7 +169,7 @@ namespace r3
 			auto& data = collisionData.getData();
 			auto maxIndex = -1;
 			auto maxValue = m_epsilon;
-			for(int i = 0; i < collisionData.getEntriesUsed(); ++i)
+			for(size_t i = 0; i < collisionData.getEntriesUsed(); ++i)
 			{
 				auto value = data[i].getDesiredDeltaVelocity();
 				if(value > maxValue)
@@ -186,8 +186,6 @@ namespace r3
 				return;
 			}
 
-
-
 			// Match the awake state at the contact
 			//c[index].matchAwakeState();
 
@@ -198,7 +196,7 @@ namespace r3
 			// With the change in velocity of the two bodies, the update of
 			// contact velocities means that some of the relative closing
 			// velocities need recomputing.
-			for(auto i = 0; i < collisionData.getEntriesUsed(); ++i)
+			for(size_t i = 0; i < collisionData.getEntriesUsed(); ++i)
 			{
 				auto& it = data[i];
 

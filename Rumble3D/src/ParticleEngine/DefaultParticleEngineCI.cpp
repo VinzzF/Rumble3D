@@ -39,7 +39,7 @@ namespace r3
 		assert(m_particleWorld != nullptr);
 
 		auto& particles = m_particleWorld->getParticles();
-		for(int i = 0; i < particles.size(); ++i)
+		for(size_t i = 0; i < particles.size(); ++i)
 		{
 			particles[i]->integrate(timeDelta);
 		}

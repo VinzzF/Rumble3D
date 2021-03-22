@@ -20,12 +20,10 @@ namespace r3
 
         for(auto& it : particles)
         {
-            float radius = defs[it.m_definition]->m_radius;
+            r3::real radius = defs[it.m_definition]->m_radius;
             applyBoundaryCondition(it, radius);
         }
     }
-
-
 
     const glm::vec3& BoundaryConditionKernelCpuSerial::getOffset() const
     {
@@ -47,7 +45,7 @@ namespace r3
         m_halfSizes = halfSizes;
     }
 
-    void BoundaryConditionKernelCpuSerial::applyBoundaryCondition(SPHParticle& particle, float radius)
+    void BoundaryConditionKernelCpuSerial::applyBoundaryCondition(SPHParticle& particle, r3::real radius)
     {
         glm::vec3 force{0.0f};
         force += applyBoundaryConditionAxis(particle, radius, glm::vec3(0.0, 1.0, 0.0));
@@ -60,15 +58,15 @@ namespace r3
     }
 
     glm::vec3
-    BoundaryConditionKernelCpuSerial::applyBoundaryConditionAxis(SPHParticle& particle, float radius, glm::vec3 axis)
+    BoundaryConditionKernelCpuSerial::applyBoundaryConditionAxis(SPHParticle& particle, r3::real radius, glm::vec3 axis)
     {
         glm::vec3 distVec = particle.m_position - m_offset + m_halfSizes;
         glm::vec3 shortestDistVec = glm::dot(axis, distVec) * axis;
 
-        float distance = glm::length(shortestDistVec);
+        r3::real distance = glm::length(shortestDistVec);
         if(distance > m_r0) return glm::vec3(0.0);
 
-        float div = m_r0 / distance;
+        r3::real div = m_r0 / distance;
         return axis * float(m_D * float(glm::pow(div, m_n1) - glm::pow(div, m_n2)) * 1.0f / glm::pow(distance, 2.0));
     }
 }

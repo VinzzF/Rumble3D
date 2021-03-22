@@ -1,5 +1,6 @@
 #pragma once
 #include "R3D/Common/Common.h"
+#include "R3D/Common/Precision.h"
 #include "R3D/Water/SPHEngine/Entity/SPHParticle.h"
 #include "R3D/Water/SPHEngine/Kernel/ISPHKernel.h"
 
@@ -30,8 +31,8 @@ namespace r3
         static constexpr float m_n2{4.0};
 
     private:
-        void applyBoundaryCondition(r3::SPHParticle& particle, float radius);
-        glm::vec3 applyBoundaryConditionAxis(r3::SPHParticle& particle, float radius, glm::vec3 axis);
+        void applyBoundaryCondition(r3::SPHParticle& particle, r3::real radius);
+        glm::vec3 applyBoundaryConditionAxis(r3::SPHParticle& particle, r3::real radius, glm::vec3 axis);
 
         glm::vec3 m_offset;
         glm::vec3 m_halfSizes;

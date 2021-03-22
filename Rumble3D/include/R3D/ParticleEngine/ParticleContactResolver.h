@@ -4,6 +4,8 @@
 #include "R3D/ParticleEngine/ParticleContact.h"
 #include "R3D/Utility/FixedSizeContainer.h"
 
+#include <cstdint>
+
 namespace r3
 {
     /**
@@ -12,14 +14,14 @@ namespace r3
 	class R3D_DECLSPEC ParticleContactResolver
 	{
 	public:
-		explicit ParticleContactResolver(unsigned int iterations);
+		explicit ParticleContactResolver(uint32_t iterations);
 		~ParticleContactResolver() = default;
 
 		/**
 		 * \brief Set maximal number of iterations used. 
 		 * \param iterations The new maximal number of iterations.
 		 */
-		void setIterationsMax(unsigned int iterations);
+		void setIterationsMax(uint32_t iterations);
 	
 		/**
 		* \brief Resolve collision and penetration. 
@@ -30,7 +32,7 @@ namespace r3
 							 real duration);
 
 	protected:
-		unsigned m_iterationsMax;
-		unsigned m_iterationsUsed;
+        uint32_t m_iterationsMax;
+        uint32_t m_iterationsUsed;
 	};
 }

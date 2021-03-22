@@ -16,7 +16,7 @@ namespace r3
 												  FixedSizeContainer<Contact>& collisions)
 	{
 		const auto& data = broadPhaseData.getData();
-		for(auto i = 0; i < broadPhaseData.getEntriesUsed(); ++i)
+		for(size_t i = 0; i < broadPhaseData.getEntriesUsed(); ++i)
 		{
 			generateCollisionData(data[i].getFirst(), data[i].getSecond(), collisions);
 		}

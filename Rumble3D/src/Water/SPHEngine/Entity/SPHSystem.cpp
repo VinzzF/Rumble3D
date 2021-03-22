@@ -16,7 +16,7 @@ namespace r3
         m_particleDefinitions.clear();
     }
 
-    SPHParticle& SPHSystem::addParticle(int particleDefinitionId)
+    SPHParticle& SPHSystem::addParticle(size_t particleDefinitionId)
     {
         assert(particleDefinitionId >= 0 && particleDefinitionId < m_particleDefinitions.size());
 
@@ -27,24 +27,18 @@ namespace r3
 
     int SPHSystem::getParticleDefinitionId(const SPHSystem::ParticleDefinition_Ptr& definition) const
     {
-        for(auto i = 0; i < m_particleDefinitions.size(); ++i)
+        for(size_t i = 0; i < m_particleDefinitions.size(); ++i)
         {
-            if(m_particleDefinitions[i] == definition)
-            {
-                return i;
-            }
+            if(m_particleDefinitions[i] == definition) return i;
         }
         return -1;
     }
 
     int SPHSystem::addParticleDefinition(const SPHSystem::ParticleDefinition_Ptr& definition)
     {
-        for(auto i = 0; i < m_particleDefinitions.size(); ++i)
+        for(size_t i = 0; i < m_particleDefinitions.size(); ++i)
         {
-            if(m_particleDefinitions[i] == definition)
-            {
-                return i;
-            }
+            if(m_particleDefinitions[i] == definition) return i;
         }
         m_particleDefinitions.emplace_back(definition);
         return m_particleDefinitions.size() - 1;

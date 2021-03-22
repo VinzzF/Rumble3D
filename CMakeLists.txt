@@ -9,22 +9,57 @@ HunterGate(
 project(Rumble3d)
 set(PROJECT_SHORT_NAME "r3")
 
-set(CMAKE_CXX_STANDARD 20)
-
 #################################################
-# User configuration
+# Developer options
 #################################################
-
-# Configuration values
-set(RUMBLE3D_ENABLE_TESTS 1)
-set(RUMBLE3D_BUILD_SAMPLES 1)
-
 set(R3D_VERSION_MAJOR "1")
 set(R3D_VERSION_MINOR "0")
 set(R3D_VERSION_PATCH "0")
-set(R3D_VERSION "${R3D_VERSION_MAJOR}.${R3D_VERSION_MINOR}.${R3D_VERSION_PATCH}")
+
+set(R3D_DEV_ALL_WARNINGS 0)
+set(R3D_DEV_WARNINGS_AS_ERRORS 1)
+set(R3D_DEV_ANNOYING_WARNINGS 0)
+set(R3D_DEV_USELESS_WARNINGS 0)
+
+#################################################
+# User options
+#################################################
+
+set(RUMBLE3D_ENABLE_TESTS 1)
+set(RUMBLE3D_BUILD_SAMPLES 1)
 
 set(R3D_CONFIG_USE_DOUBLE_PRECISION "0")
+
+#################################################
+# Compiler options
+#################################################
+if(${R3D_DEV_ALL_WARNINGS})
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall  -Wpedantic")
+    if(${R3D_DEV_ANNOYING_WARNINGS})
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+    endif()
+    if(${R3D_DEV_USELESS_WARNINGS})
+        # NOTHING TO DO
+    else()
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-reorder")
+    endif()
+endif()
+
+
+if(${R3D_DEV_WARNINGS_AS_ERRORS})
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+endif()
+
+
+
+set(CMAKE_CXX_STANDARD 20)
+
+
+#################################################
+# Other configuration
+#################################################
+
+set(R3D_VERSION "${R3D_VERSION_MAJOR}.${R3D_VERSION_MINOR}.${R3D_VERSION_PATCH}")
 
 # Configuration file setup
 set(R3D_CONFIGURATION_PATH "${CMAKE_SOURCE_DIR}/Rumble3D/include/R3D/Common/Config.h")
