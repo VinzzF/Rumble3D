@@ -33,22 +33,42 @@ set(R3D_CONFIG_USE_DOUBLE_PRECISION "0")
 #################################################
 # Compiler options
 #################################################
-if(${R3D_DEV_ALL_WARNINGS})
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall  -Wpedantic")
-    if(${R3D_DEV_ANNOYING_WARNINGS})
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+
+if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVCC)
+    if(${R3D_DEV_ALL_WARNINGS})
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+        if(${R3D_DEV_ANNOYING_WARNINGS})
+            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
+        endif()
+        if(${R3D_DEV_USELESS_WARNINGS})
+            # NOTHING TO DO
+        else()
+            # Maybe add this:
+            #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}") '
+        endif()
     endif()
-    if(${R3D_DEV_USELESS_WARNINGS})
-        # NOTHING TO DO
-    else()
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-reorder")
+    if(${R3D_DEV_WARNINGS_AS_ERRORS})
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /WX")
+    endif()
+else()
+    if(${R3D_DEV_ALL_WARNINGS})
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall  -Wpedantic")
+        if(${R3D_DEV_ANNOYING_WARNINGS})
+            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+        endif()
+        if(${R3D_DEV_USELESS_WARNINGS})
+            # NOTHING TO DO
+        else()
+            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-reorder")
+        endif()
+    endif()
+    if(${R3D_DEV_WARNINGS_AS_ERRORS})
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
     endif()
 endif()
 
 
-if(${R3D_DEV_WARNINGS_AS_ERRORS})
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
-endif()
+
 
 
 
