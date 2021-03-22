@@ -34,7 +34,7 @@ set(R3D_CONFIG_USE_DOUBLE_PRECISION "0")
 # Compiler options
 #################################################
 
-if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVCC)
+if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
     if(${R3D_DEV_ALL_WARNINGS})
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
         if(${R3D_DEV_ANNOYING_WARNINGS})
