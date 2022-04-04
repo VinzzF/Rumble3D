@@ -550,7 +550,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="include\R3D\Utility\FixedSizeContainer.inl">
       <Filter>Header Files</Filter>
     </None>
