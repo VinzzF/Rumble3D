@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{25A2AD93-2B9C-4E47-984E-6B0292DC8122}</ProjectGuid>
     <RootNamespace>Rumble3D</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -69,22 +69,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir);</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/include;$(ProjectDir)/include/glm;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)Build\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir);</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/include;$(ProjectDir)/include/glm;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)Build\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir);</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/include;$(ProjectDir)/include/glm;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)Build\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir);</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/include;$(ProjectDir)/include/glm;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)Build\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
@@ -94,10 +94,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ObjectFileName>$(IntDir)\%(RelativeDir)</ObjectFileName>
-      <AdditionalIncludeDirectories>$(ProjectDir)/include;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -112,10 +112,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ObjectFileName>$(IntDir)\%(RelativeDir)</ObjectFileName>
-      <AdditionalIncludeDirectories>$(ProjectDir)/include;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -132,10 +132,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ObjectFileName>$(IntDir)\%(RelativeDir)</ObjectFileName>
-      <AdditionalIncludeDirectories>$(ProjectDir)/include;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -154,10 +154,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ObjectFileName>$(IntDir)\%(RelativeDir)</ObjectFileName>
-      <AdditionalIncludeDirectories>$(ProjectDir)/include;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

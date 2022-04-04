@@ -1,0 +1,3 @@
+[submodule "Rumble3D/include/glm"]
+	path = Rumble3D/include/glm
+	url = https://github.com/g-truc/glm.git
