@@ -21,7 +21,10 @@ namespace r3
 												m_contactGenerators.end(),
 												generator);
 
-		return foundGenerator != m_contactGenerators.end();
+		bool found = foundGenerator != m_contactGenerators.end();
+		m_contactGenerators.erase(foundGenerator, m_contactGenerators.end());
+
+		return found;
 	}
 
 	void ParticleContactGeneratorRegistry::clear()
