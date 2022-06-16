@@ -2,18 +2,16 @@
 #include "R3D/RigidBodyEngine/ForceGenerator.h"
 #include "R3D/RigidBodyEngine/RigidBody.h"
 
+#include <algorithm>
+
 namespace r3
 {
 	void ForceRegistry::unregisterForce(RigidBody* rigidBody, ForceGenerator* generator)
-	{		
-		for (auto i = m_registrations.begin(); i != m_registrations.end(); ++i)
-		{
-			if (i->m_rigidBody == rigidBody && 
-				i->m_forceGenerator == generator)
-			{
-				m_registrations.erase(i);
-			}
-		}
+	{
+		auto it_rem = std::remove_if(m_registrations.begin(), m_registrations.end()
+			, [=](const ForceRegistrationEntry& fre) { return fre.m_rigidBody == rigidBody && fre.m_forceGenerator == generator; });
+
+		m_registrations.erase(it_rem, m_registrations.end());
 	}
 	
 	void ForceRegistry::clear()
